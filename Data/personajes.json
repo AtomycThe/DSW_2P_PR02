@@ -1,0 +1,32 @@
+[
+  {
+    "Id": 1,
+    "Nombre": "Kratos",
+    "Videojuego": "God of War",
+    "Clase": "Guerrero",
+    "Nivel": 95,
+    "Poder": 9800,
+    "Disponible": true,
+    "ImagenUrl": "https://placehold.co/400x400/png?text=Kratos"
+  },
+  {
+    "Id": 2,
+    "Nombre": "Link",
+    "Videojuego": "The Legend of Zelda",
+    "Clase": "Espadachin",
+    "Nivel": 80,
+    "Poder": 7500,
+    "Disponible": true,
+    "ImagenUrl": "https://placehold.co/400x400/png?text=Link"
+  },
+  {
+    "Id": 3,
+    "Nombre": "Geralt",
+    "Videojuego": "The Witcher 3",
+    "Clase": "Brujo",
+    "Nivel": 70,
+    "Poder": 6900,
+    "Disponible": true,
+    "ImagenUrl": "https://placehold.co/400x400/png?text=Geralt"
+  }
+]

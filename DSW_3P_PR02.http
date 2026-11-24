@@ -1,0 +1,43 @@
+@host = http://localhost:5217
+
+GET {{host}}/api/personajes
+Accept: application/json
+
+###
+GET {{host}}/api/personajes/1
+
+###
+GET {{host}}/api/personajes/videojuego/God of War
+
+###
+GET {{host}}/api/personajes/nivel/75
+
+###
+POST {{host}}/api/personajes
+Content-Type: application/json
+
+{
+  "nombre": "Master Chief",
+  "videojuego": "Halo",
+  "clase": "Spartan",
+  "nivel": 90,
+  "poder": 8800,
+  "imagenUrl": "https://placehold.co/400x400/png?text=Master+Chief"
+}
+
+###
+PUT {{host}}/api/personajes/1
+Content-Type: application/json
+
+{
+  "nombre": "Kratos",
+  "videojuego": "God of War",
+  "clase": "Dios de la guerra",
+  "nivel": 99,
+  "poder": 9900,
+  "disponible": false,
+  "imagenUrl": "https://placehold.co/400x400/png?text=Kratos"
+}
+
+###
+DELETE {{host}}/api/personajes/4
