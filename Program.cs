@@ -69,6 +69,18 @@ builder.Services
     });
 builder.Services.AddAuthorization();
 
+// Configurar politica de CORS (origenes en appsettings.json -> Cors:OrigenesPermitidos)
+var origenes = builder.Configuration.GetSection("Cors:OrigenesPermitidos").Get<string[]>() ?? [];
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("ClienteEvaluacion", policy =>
+    {
+        policy.WithOrigins(origenes)
+            .WithMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+            .WithHeaders("Content-Type", "Authorization", "Accept");
+    });
+});
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -80,6 +92,8 @@ if (app.Environment.IsDevelopment())
         options.SwaggerEndpoint("/openapi/v1.json", "CharacterHub API v1");
     });
 }
+
+app.UseCors("ClienteEvaluacion");
 
 app.UseHttpsRedirection();
 
