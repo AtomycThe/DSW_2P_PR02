@@ -1,11 +1,13 @@
 using DSW_3P_PR02.Models;
 using DSW_3P_PR02.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DSW_3P_PR02.Controllers;
 
 [ApiController]
 [Route("api/personajes")]
+[Authorize]
 [Produces("application/json")]
 public class PersonajesController : ControllerBase
 {
@@ -19,6 +21,7 @@ public class PersonajesController : ControllerBase
     [HttpGet]
     [EndpointSummary("Consultar todos los personajes")]
     [ProducesResponseType(typeof(List<Personaje>), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     public IActionResult ObtenerTodos() => Ok(_service.ObtenerTodos());
 
     [HttpGet("{id:int}")]
